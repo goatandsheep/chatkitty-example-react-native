@@ -1,19 +1,44 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Title} from 'react-native-paper';
-import {AuthContext} from '../navigation/AuthProvider';
-import FormButton from "../components/FormButton";
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {List, Divider} from 'react-native-paper';
+import {kitty} from '../chatkitty';
+import Loading from '../components/Loading';
 
 export default function HomeScreen() {
-  const {user, logout} = useContext(AuthContext);
+  const [channels, setChannels] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    kitty.getChannels()
+    .then(result => {
+      setChannels(result.paginator.items)
+
+      if (loading) {
+        setLoading(false)
+      }
+    })
+  })
+
+  if (loading) {
+    return <Loading/>;
+  }
 
   return (
       <View style={styles.container}>
-        <Title>Hello, {user.displayName}!</Title>
-        <FormButton
-            modeValue='contained'
-            title='Logout'
-            onPress={() => logout()}
+        <FlatList
+            data={channels}
+            keyExtractor={item => item.id.toString()}
+            ItemSeparatorComponent={() => <Divider/>}
+            renderItem={({item}) => (
+                <List.Item
+                    title={item.name}
+                    description={item.type}
+                    titleNumberOfLines={1}
+                    titleStyle={styles.listTitle}
+                    descriptionStyle={styles.listDescription}
+                    descriptionNumberOfLines={1}
+                />
+            )}
         />
       </View>
   );
@@ -22,8 +47,12 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f5f5f5',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
+  },
+  listTitle: {
+    fontSize: 22
+  },
+  listDescription: {
+    fontSize: 16
   }
 });

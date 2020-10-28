@@ -2233,10 +2233,10 @@ chardet@^0.4.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
-chatkitty@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.15.tgz#becee6d0ed3a0779e5c348b4e5c568be7bceacc4"
-  integrity sha512-Xx+i2crxJ3v0EaUkYoYHh62ZaVv4lzJGsfiL418JCVN8Qn64RDO/Iy2WQZdIz6UGqDQq5r0Py0FbY23hM+gaOg==
+chatkitty@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.16.tgz#494c42cf7f37a3d92738a966a476bbc9f9065571"
+  integrity sha512-35DRIhLHgWwbcPuFuZRB0iGulRLqax5VzeeMGk206TfEDVV9jpxvkiAl1BQagqd8/bMdrjmTG2kr1qUvBTrExA==
   dependencies:
     "@stomp/rx-stomp" "^0.3.5"
     rxjs "^6.6.3"
