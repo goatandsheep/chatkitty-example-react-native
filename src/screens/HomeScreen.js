@@ -4,7 +4,7 @@ import {List, Divider} from 'react-native-paper';
 import {kitty} from '../chatkitty';
 import Loading from '../components/Loading';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const [channels, setChannels] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,7 @@ export default function HomeScreen() {
         setLoading(false)
       }
     })
-  })
+  }, [])
 
   if (loading) {
     return <Loading/>;
@@ -30,14 +30,21 @@ export default function HomeScreen() {
             keyExtractor={item => item.id.toString()}
             ItemSeparatorComponent={() => <Divider/>}
             renderItem={({item}) => (
-                <List.Item
-                    title={item.name}
-                    description={item.type}
-                    titleNumberOfLines={1}
-                    titleStyle={styles.listTitle}
-                    descriptionStyle={styles.listDescription}
-                    descriptionNumberOfLines={1}
-                />
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Channel',
+                        {channel: item})}
+                >
+                  <List.Item
+                      title={item.name}
+                      description={item.type}
+                      titleNumberOfLines={1}
+                      titleStyle={styles.listTitle}
+                      descriptionStyle={styles.listDescription}
+                      descriptionNumberOfLines={1}
+                      onPress={() => navigation.navigate('Channel',
+                          {channel: item})}
+                  />
+                </TouchableOpacity>
             )}
         />
       </View>

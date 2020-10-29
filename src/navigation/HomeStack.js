@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import CreateChannelScreen from "../screens/CreateChannelScreen";
 import {IconButton} from "react-native-paper";
+import ChannelScreen from "../screens/ChannelScreen";
 
 const ChatStack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -43,6 +44,7 @@ function ChatComponent() {
                                 />
                             )
                           })}/>
+        <ChatStack.Screen name='Channel' component={ChannelScreen}/>
       </ChatStack.Navigator>
   );
 }
