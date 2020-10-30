@@ -5,14 +5,14 @@ import {kitty} from '../chatkitty';
 import Loading from '../components/Loading';
 import {useIsFocused} from "@react-navigation/native";
 
-export default function HomeScreen({navigation}) {
+export default function BrowseChannelsScreen({navigation}) {
   const [channels, setChannels] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    kitty.getChannels()
+    kitty.getJoinableChannels()
     .then(result => {
       setChannels(result.paginator.items)
 
@@ -24,6 +24,12 @@ export default function HomeScreen({navigation}) {
 
   if (loading) {
     return <Loading/>;
+  }
+
+  async function handleJoinChannel(channel) {
+    const result = await kitty.joinChannel({channel: channel})
+
+    navigation.navigate('Channel', {channel: result.channel})
   }
 
   return (
@@ -44,8 +50,7 @@ export default function HomeScreen({navigation}) {
                       titleStyle={styles.listTitle}
                       descriptionStyle={styles.listDescription}
                       descriptionNumberOfLines={1}
-                      onPress={() => navigation.navigate('Channel',
-                          {channel: item})}
+                      onPress={() => handleJoinChannel(item)}
                   />
                 </TouchableOpacity>
             )}
