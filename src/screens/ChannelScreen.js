@@ -9,8 +9,11 @@ export default function ChannelScreen({route}) {
 
   const {channel} = route.params;
 
+  const [messagePaginator, setMessagePaginator] = useState(null);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadEarlier, setLoadEarlier] = useState(false);
+  const [isLoadingEarlier, setIsLoadingEarlier] = useState(false);
 
   function mapMessage(message) {
     return {
@@ -29,7 +32,7 @@ export default function ChannelScreen({route}) {
     let result = kitty.startChannelSession({
       channel: channel,
       onReceivedMessage: message => {
-        setMessages(previousMessages => GiftedChat.append(previousMessages,
+        setMessages(currentMessages => GiftedChat.append(currentMessages,
             [mapMessage(message)]));
       }
     });
@@ -37,7 +40,11 @@ export default function ChannelScreen({route}) {
     kitty.getMessages({
       channel: channel
     }).then(result => {
+      setMessagePaginator(result.paginator);
+
       setMessages(result.paginator.items.map(mapMessage));
+
+      setLoadEarlier(result.paginator.hasNextPage)
 
       setLoading(false);
     })
@@ -53,14 +60,38 @@ export default function ChannelScreen({route}) {
     await kitty.createMessage({
       channel: channel,
       body: messages[0].text
-    })
+    });
+  }
+
+  async function handleLoadEarlier() {
+    if (!messagePaginator.hasNextPage) {
+      setLoadEarlier(false);
+
+      return;
+    }
+
+    setIsLoadingEarlier(true);
+
+    console.log('loading earlier');
+
+    const nextPaginator = await messagePaginator.nextPage();
+
+    setMessagePaginator(nextPaginator);
+
+    setMessages(currentMessages => GiftedChat.prepend(currentMessages,
+        nextPaginator.items.map(mapMessage)));
+
+    setIsLoadingEarlier(false);
   }
 
   return (
       <GiftedChat
           messages={messages}
-          onSend={newMessage => handleSend(newMessage)}
+          onSend={handleSend}
           user={user}
+          loadEarlier={loadEarlier}
+          isLoadingEarlier={isLoadingEarlier}
+          onLoadEarlier={handleLoadEarlier}
       />
   );
 }
