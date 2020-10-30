@@ -29,7 +29,7 @@ export default function ChannelScreen({route}) {
   }
 
   useEffect(() => {
-    let result = kitty.startChannelSession({
+    let result = kitty.startChatSession({
       channel: channel,
       onReceivedMessage: message => {
         setMessages(currentMessages => GiftedChat.append(currentMessages,
