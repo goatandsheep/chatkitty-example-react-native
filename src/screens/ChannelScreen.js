@@ -57,7 +57,7 @@ export default function ChannelScreen({route}) {
   }
 
   async function handleSend(messages) {
-    await kitty.createMessage({
+    await kitty.sendMessage({
       channel: channel,
       body: messages[0].text
     });
@@ -71,8 +71,6 @@ export default function ChannelScreen({route}) {
     }
 
     setIsLoadingEarlier(true);
-
-    console.log('loading earlier');
 
     const nextPaginator = await messagePaginator.nextPage();
 
