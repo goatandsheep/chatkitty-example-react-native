@@ -7,6 +7,8 @@ import {AuthContext} from "../navigation/AuthProvider";
 export default function ChannelScreen({route}) {
   const {user} = useContext(AuthContext);
 
+  const chatUser = mapUser(user);
+
   const {channel} = route.params;
 
   const [messagePaginator, setMessagePaginator] = useState(null);
@@ -15,16 +17,20 @@ export default function ChannelScreen({route}) {
   const [loadEarlier, setLoadEarlier] = useState(false);
   const [isLoadingEarlier, setIsLoadingEarlier] = useState(false);
 
+  function mapUser(user) {
+    return {
+      _id: user.name,
+      name: user.displayName,
+      avatar: user.displayPictureUrl
+    }
+  }
+
   function mapMessage(message) {
     return {
       _id: message.id,
       text: message.body,
       createdAt: new Date(message.createdTime),
-      user: {
-        _id: message.user.name,
-        name: message.user.displayName,
-        avatar: message.user.displayPictureUrl
-      }
+      user: mapUser(message.user)
     }
   }
 
@@ -86,7 +92,7 @@ export default function ChannelScreen({route}) {
       <GiftedChat
           messages={messages}
           onSend={handleSend}
-          user={user}
+          user={chatUser}
           loadEarlier={loadEarlier}
           isLoadingEarlier={isLoadingEarlier}
           onLoadEarlier={handleLoadEarlier}
