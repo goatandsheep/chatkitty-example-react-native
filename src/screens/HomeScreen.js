@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {List, Divider} from 'react-native-paper';
 import {kitty} from '../chatkitty';
 import Loading from '../components/Loading';
@@ -33,10 +33,6 @@ export default function HomeScreen({navigation}) {
             keyExtractor={item => item.id.toString()}
             ItemSeparatorComponent={() => <Divider/>}
             renderItem={({item}) => (
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Channel',
-                        {channel: item})}
-                >
                   <List.Item
                       title={item.name}
                       description={item.type}
@@ -47,7 +43,6 @@ export default function HomeScreen({navigation}) {
                       onPress={() => navigation.navigate('Channel',
                           {channel: item})}
                   />
-                </TouchableOpacity>
             )}
         />
       </View>
