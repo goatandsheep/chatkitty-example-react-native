@@ -1,8 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Bubble, GiftedChat} from 'react-native-gifted-chat';
+import {Actions, Bubble, GiftedChat} from 'react-native-gifted-chat';
 import {kitty} from '../chatkitty';
 import Loading from '../components/Loading';
 import {AuthContext} from '../navigation/AuthProvider';
+import * as DocumentPicker from 'expo-document-picker';
+import {Video} from 'expo-av';
+import {View} from "react-native-web";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function ChannelScreen({route}) {
   const {user} = useContext(AuthContext);
@@ -26,12 +30,26 @@ export default function ChannelScreen({route}) {
   }
 
   function mapMessage(message) {
-    return {
+    let giftedMessage = {
       _id: message.id,
       text: message.body,
       createdAt: new Date(message.createdTime),
       user: mapUser(message.user),
     };
+
+    let file = message.file
+
+    if (file) {
+      if (/image\/*/.test(file.contentType)) {
+        giftedMessage.image = file.url;
+      }
+
+      if (/video\/*/.test(file.contentType)) {
+        giftedMessage.video = file.url;
+      }
+    }
+
+    return giftedMessage;
   }
 
   function renderBubble(props) {
@@ -103,6 +121,68 @@ export default function ChannelScreen({route}) {
     setIsLoadingEarlier(false);
   }
 
+  const renderActions = (props) => (
+      <Actions
+          {...props}
+          containerStyle={{
+            width: 44,
+            height: 44,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginLeft: 4,
+            marginRight: 4,
+            marginBottom: 0,
+          }}
+          icon={() => (
+              <Ionicons name="ios-attach" size={24} color="black"/>
+          )}
+          options={{
+            'Choose From Library': async () => {
+              const fileResult = await DocumentPicker.getDocumentAsync({
+                type: "image/*;video/*"
+              });
+
+              if (fileResult.type === 'success') {
+                await kitty.sendMessage({
+                  channel: channel,
+                  file: fileResult.file,
+                  progressListener: {
+                    onStarted: () => {
+                      setLoading(true);
+                    },
+
+                    onProgress: (progress) => {
+                      console.log("Upload progress: " + progress * 100 + "%")
+                    },
+
+                    onCompleted: (result) => {
+                      setLoading(false);
+                    }
+                  }
+                });
+              }
+            },
+            Cancel: () => {
+              console.log('Cancel');
+            },
+          }}
+          optionTintColor="#222B45"
+      />
+  );
+
+  const renderMessageVideo = (props) => {
+    const {currentMessage} = props;
+    return (
+        <View style={{padding: 20}}>
+          <Video
+              resizeMode="contain"
+              shouldPlay={true}
+              source={{uri: currentMessage.video}}
+          />
+        </View>
+    );
+  };
+
   return (
       <GiftedChat
           messages={messages}
@@ -112,6 +192,8 @@ export default function ChannelScreen({route}) {
           isLoadingEarlier={isLoadingEarlier}
           onLoadEarlier={handleLoadEarlier}
           renderBubble={renderBubble}
+          renderActions={renderActions}
+          renderMessageVideo={renderMessageVideo}
       />
   );
 }
