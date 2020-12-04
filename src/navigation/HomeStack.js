@@ -6,8 +6,8 @@ const Stack = createStackNavigator();
 
 export default function HomeStack() {
   return (
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={HomeScreen} />
-      </Stack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+    </Stack.Navigator>
   );
 }

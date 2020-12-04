@@ -2134,6 +2134,13 @@ available-typed-arrays@^1.0.0, available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
+axios@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
+  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+  dependencies:
+    follow-redirects "^1.10.0"
+
 babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -2455,12 +2462,13 @@ chardet@^0.4.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
-chatkitty@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.15.tgz#becee6d0ed3a0779e5c348b4e5c568be7bceacc4"
-  integrity sha512-Xx+i2crxJ3v0EaUkYoYHh62ZaVv4lzJGsfiL418JCVN8Qn64RDO/Iy2WQZdIz6UGqDQq5r0Py0FbY23hM+gaOg==
+chatkitty@~0.0.26:
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.30.tgz#0477afbfa6e9a386522181924bf96668a7a8a7ba"
+  integrity sha512-RpPPsZzjyeGFg40FolgBxLvcPrb4BstRBRyhTRMUOMSa9ZuC8hTZOS6x/sri0TVFeJMnKixUS2/2tzGJg+eaqw==
   dependencies:
     "@stomp/rx-stomp" "^0.3.5"
+    axios "^0.21.0"
     rxjs "^6.6.3"
     text-encoding "^0.7.0"
 
@@ -3674,6 +3682,11 @@ flatted@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
   integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
+
+follow-redirects@^1.10.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
+  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
