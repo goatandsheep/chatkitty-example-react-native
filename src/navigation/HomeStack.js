@@ -1,10 +1,11 @@
-import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../screens/HomeScreen';
-import CreateChannelScreen from '../screens/CreateChannelScreen';
+import React from 'react';
 import { IconButton } from 'react-native-paper';
-import ChatScreen from '../screens/ChatScreen';
+
 import BrowseChannelsScreen from '../screens/BrowseChannelsScreen';
+import ChatScreen from '../screens/ChatScreen';
+import CreateChannelScreen from '../screens/CreateChannelScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const ChatStack = createStackNavigator();
 const ModalStack = createStackNavigator();
