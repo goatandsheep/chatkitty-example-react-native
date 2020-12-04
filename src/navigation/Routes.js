@@ -25,7 +25,7 @@ export default function Routes() {
     }
 
     return kitty.onCurrentUserChanged(onCurrentUserChanged);
-  }, [setUser, initializing, setLoading]);
+  }, [initializing, setUser]);
 
   if (loading) {
     return <Loading />;
