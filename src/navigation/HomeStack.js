@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
-import { kitty } from '../chatkitty';
+import { getChannelDisplayName, kitty } from '../chatkitty';
 import BrowseChannelsScreen from '../screens/BrowseChannelsScreen';
 import ChatScreen from '../screens/ChatScreen';
 import CreateChannelScreen from '../screens/CreateChannelScreen';
@@ -102,9 +102,9 @@ function ChatComponent({ navigation, showNotification }) {
       />
       <ChatStack.Screen
         name="Chat"
-        component={ChatScreen}
+        component={withInAppNotification(ChatScreen)}
         options={({ route }) => ({
-          title: route.params.channel.name,
+          title: getChannelDisplayName(route.params.channel),
         })}
       />
     </ChatStack.Navigator>
