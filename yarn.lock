@@ -2202,10 +2202,10 @@ available-typed-arrays@^1.0.0, available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
-axios@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
-  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
 
@@ -2537,13 +2537,13 @@ chardet@^0.4.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
-chatkitty@~0.0.26:
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.30.tgz#0477afbfa6e9a386522181924bf96668a7a8a7ba"
-  integrity sha512-RpPPsZzjyeGFg40FolgBxLvcPrb4BstRBRyhTRMUOMSa9ZuC8hTZOS6x/sri0TVFeJMnKixUS2/2tzGJg+eaqw==
+chatkitty@~1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-1.8.0.tgz#f851c9dff780283e62c5ad333af5e5a3fb7603bf"
+  integrity sha512-lqmgXUDdImaiK3Xkrofd7kh9Gg8JL8mFtzTwIPpygZEkIDDhXpaqYoXbkJs94J3idF2RbYuOEwQAep44MH0mrA==
   dependencies:
     "@stomp/rx-stomp" "^0.3.5"
-    axios "^0.21.0"
+    axios "^0.21.1"
     rxjs "^6.6.3"
     text-encoding "^0.7.0"
 
