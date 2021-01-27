@@ -2630,6 +2630,13 @@ available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
+
 babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
@@ -2979,12 +2986,13 @@ chardet@^0.4.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
   integrity sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=
 
-chatkitty@~0.0.26:
-  version "0.0.26"
-  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-0.0.26.tgz#39f39d569345873ca0e2a9d91dd0fd8770d848b0"
-  integrity sha512-qKhutcdBVmCDGWYDO5tVvhEMCZtrPBTQDqPC60U79j74i2sgQrJD5uc6aRDUfj28pqfMvYdR1uwox0OZvNUIhQ==
+chatkitty@~1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/chatkitty/-/chatkitty-1.8.0.tgz#f851c9dff780283e62c5ad333af5e5a3fb7603bf"
+  integrity sha512-lqmgXUDdImaiK3Xkrofd7kh9Gg8JL8mFtzTwIPpygZEkIDDhXpaqYoXbkJs94J3idF2RbYuOEwQAep44MH0mrA==
   dependencies:
     "@stomp/rx-stomp" "^0.3.5"
+    axios "^0.21.1"
     rxjs "^6.6.3"
     text-encoding "^0.7.0"
 
@@ -4445,6 +4453,11 @@ flatted@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.0.tgz#a5d06b4a8b01e3a63771daa5cb7a1903e2e57067"
   integrity sha512-tW+UkmtNg/jv9CSofAKvgVcO7c2URjhTdW1ZTkcAritblu8tajiYy7YisnIflEwtKssCtOxpnBRoCB7iap0/TA==
+
+follow-redirects@^1.10.0:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.2.tgz#dd73c8effc12728ba5cf4259d760ea5fb83e3147"
+  integrity sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA==
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
