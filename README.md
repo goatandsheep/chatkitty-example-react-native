@@ -13,7 +13,7 @@ This example uses:
 - [react-navigation-shared-element](https://github.com/IjzerenHein/react-navigation-shared-element)
 - [react-native-shared-element](https://github.com/IjzerenHein/react-native-shared-element)
 
-<p align="center"><img src="https://www.chatkitty.com/images/blog/posts/building-a-chat-app-with-react-native-and-gifted-chat-part-2/screenshot-channel-chat-screen-another-user.png" width=344 alt="Realtime Chat Demo"></p>
+<p align="center"><img src="https://www.chatkitty.com/images/blog/posts/building-a-chat-app-with-react-native-and-gifted-chat-part-4/screenshot-simple-typing-indicator.png" width=344 alt="Realtime Chat Demo"></p>
 
 ## Features
 
