@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
         login: async (email, password) => {
           setLoading(true);
 
-          let result = await kitty.startSession({
+          const result = await kitty.startSession({
             username: email,
             authParams: {
               password: password,
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
                 credential.user
                   .updateProfile({ displayName: displayName })
                   .then(async () => {
-                    let result = await kitty.startSession({
+                    const result = await kitty.startSession({
                       username: email,
                       authParams: {
                         password: password,

@@ -16,7 +16,7 @@ export default function ChatScreen({ route }) {
   const [messagePaginator, setMessagePaginator] = useState(null);
 
   useEffect(() => {
-    let startChatSessionResult = kitty.startChatSession({
+    const startChatSessionResult = kitty.startChatSession({
       channel: channel,
       onReceivedMessage: (message) => {
         setMessages((currentMessages) =>
