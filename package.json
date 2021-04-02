@@ -40,6 +40,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.0.tar.gz",
+    "react-native-dotenv": "^2.5.3",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-gifted-chat": "^0.16.3",
     "react-native-paper": "^4.6.0",

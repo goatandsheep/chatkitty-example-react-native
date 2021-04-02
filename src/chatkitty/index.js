@@ -1,8 +1,7 @@
 import ChatKitty from 'chatkitty';
+import { CHATKITTY_INSTANCE } from 'react-native-dotenv';
 
-export const kitty = ChatKitty.getInstance(
-  '73ddf9ec-d560-4c15-9302-7c2c162fb309'
-);
+export const kitty = ChatKitty.getInstance(CHATKITTY_INSTANCE);
 
 export function getChannelDisplayName(channel) {
   if (channel.type === 'DIRECT') {
