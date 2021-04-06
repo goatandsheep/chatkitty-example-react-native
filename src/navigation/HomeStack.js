@@ -7,6 +7,7 @@ import { Platform } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
 import { getChannelDisplayName, kitty } from '../chatkitty';
+import { Logging } from '../navigation';
 import BrowseChannelsScreen from '../screens/BrowseChannelsScreen';
 import ChatScreen from '../screens/ChatScreen';
 import CreateChannelScreen from '../screens/CreateChannelScreen';
@@ -124,13 +125,13 @@ async function registerForPushNotificationsAsync() {
       finalStatus = status;
     }
     if (finalStatus !== 'granted') {
-      console.log('Failed to get push token for push notification!');
+      Logging.error('Failed to get push token for push notification!');
       return;
     }
 
     token = (await Notifications.getExpoPushTokenAsync()).data;
   } else {
-    console.log('Must use physical device for Push Notifications');
+    Logging.warn('Must use physical device for Push Notifications');
   }
 
   if (Platform.OS === 'android') {

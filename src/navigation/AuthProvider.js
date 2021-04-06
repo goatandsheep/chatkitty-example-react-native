@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 
 import { kitty } from '../chatkitty';
 import { firebase } from '../firebase';
+import { Logging } from '../navigation';
 
 export const AuthContext = createContext({});
 
@@ -29,7 +30,7 @@ export const AuthProvider = ({ children }) => {
           setLoading(false);
 
           if (result.failed) {
-            console.log('Could not login');
+            Logging.error('Could not login');
           }
         },
         register: async (displayName, email, password) => {
@@ -51,12 +52,12 @@ export const AuthProvider = ({ children }) => {
                     });
 
                     if (result.failed) {
-                      console.log('Could not login');
+                      Logging.error('Could not login');
                     }
                   });
               });
           } catch (e) {
-            console.log(e);
+            Logging.error(e);
           }
 
           setLoading(false);

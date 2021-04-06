@@ -1,5 +1,5 @@
 import {
-  APP_LOGGING,
+  APP_LOGGING as APP_LOGGING_VAL,
   CHATKITTY_APP_ID,
   CHATKITTY_INSTANCE,
   CHATKITTY_MEASUREMENT_ID,
@@ -11,9 +11,7 @@ import {
   FIREBASE_STORAGE_BUCKET,
 } from 'react-native-dotenv';
 
-export const APP_LOGGIBNG = APP_LOGGING !== 'false' ? true : false;
-
-export {
+export default {
   FIREBASE_API_KEY,
   FIREBASE_AUTH_DOMAIN,
   FIREBASE_DATABASE_URL,
@@ -23,4 +21,5 @@ export {
   CHATKITTY_APP_ID,
   CHATKITTY_MEASUREMENT_ID,
   CHATKITTY_INSTANCE,
+  APP_LOGGING: APP_LOGGING_VAL !== 'false' ? true : false,
 };

@@ -2,8 +2,13 @@ import { InAppNotificationProvider } from '@chatkitty/react-native-in-app-notifi
 import React from 'react';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
+import Logger from '../modules/Logger';
+import constants from '../modules/constants';
+
 import { AuthProvider } from './AuthProvider';
 import Routes from './Routes';
+
+export const Logging = new Logger('main', constants.APP_LOGGING);
 
 export default function Providers() {
   return (
